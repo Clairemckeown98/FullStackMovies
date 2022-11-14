@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 from bson import ObjectId
 
+
 def create_database():
     client = MongoClient("mongodb://127.0.0.1:27017")
     db = client.moviesDB

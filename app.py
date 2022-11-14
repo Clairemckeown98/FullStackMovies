@@ -17,6 +17,7 @@ users = db.users
 # application functionality will go here
 @app.route("/api/v1.0/movies", methods=["GET"])
 
+
 def show_all_movies():
     page_num, page_size = 1, 10
     if request.args.get('pn'):
