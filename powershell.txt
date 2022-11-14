@@ -1,0 +1,5 @@
+
+
+PS C:\Program Files\MongoDB\Server\6.0\bin> .\mongoimport --db yelpDB --collection businesses --jsonArray 'C:\Users\clair\OneDrive - Ulster University\Documents\1. 2022-23\Cloud\newbiz\businesses.json'
+
+PS C:\Program Files\MongoDB\Server\6.0\bin> .\mongoimport --db moviesDB --collection businesses --jsonArray 'C:\Users\clair\OneDrive - Ulster University\Documents\1. 2022-23\Full Stack\MovieReviews\movies.json'
