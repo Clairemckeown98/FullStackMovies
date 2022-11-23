@@ -9,7 +9,7 @@ for movie in movies.find():
 	movies.update_one(
 		{ "_id" : movie['_id'] },
 			{ 
-				"$unset" : { "id" : ""} 
+				"$unset" : { "reviews": ""} 
 			}
  )
 

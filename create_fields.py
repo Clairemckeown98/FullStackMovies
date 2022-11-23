@@ -10,7 +10,7 @@ for movie in movies.find():
 		{ "_id" : movie['_id'] },
 			{
 				"$set" : {
-				"Reviews" : []
+				"reviews" : []
 				}
 			}
 )
