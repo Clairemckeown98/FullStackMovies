@@ -1,20 +1,32 @@
 <div class="container">
     <div class="row">
+
         <div class="col-sm-12">
-            <div *ngFor="let movies of webService.movie_list">
-                <div class="card text-white bg-primary mb-3" style="width: 50rem; margin: auto">
+            <div *ngFor="let movie of webService.movie_list">
+                <div class="card text-white bg-primary mb-3" style="cursor:pointer" [routerLink] = "['/movies', movie._id]">
                     <div class="card-header">
-                        {{ movies.title }}
+                        {{ movie.title }}
                     </div>
                     <div class="card-body">
-                        {{ movies.overview }}
+                        {{ movie.overview }}
                     </div>
                     <div class="card-footer">
-                        {{ movies.budget }}
+                        {{ movie.budget }}
                         
                     </div>
                 </div>
             </div>
         </div> <!-- col -->
     </div> <!-- row -->
+    <div class="row">
+        <div class="col-sm-6">
+            <button class="btn btn-primary"
+                    (click)="previousPage()">Previous</button>
+        </div>
+        <div class="col-sm-6 text-end">
+            <button class="btn btn-primary"
+                (click)="nextPage()">Next</button>
+        </div>
+    </div>
+    
 </div> <!-- container -->

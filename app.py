@@ -71,7 +71,6 @@ def show_all_movies():
 
 @app.route("/api/v1.0/movies/<string:id>", methods=["GET"])
 @cross_origin(origin='*',headers=['Content-Type','Authorization'])
-@jwt_required
 def show_one_movie(id):
     movie = movies.find_one({'_id':ObjectId(id)})
     if movie is not None:
@@ -79,7 +78,7 @@ def show_one_movie(id):
         if movie['reviews'] is not None:
             for review in movie['reviews']:
                 review['_id'] = str(review['_id'])
-            return make_response( jsonify( movie ), 200 )
+            return make_response( jsonify( [movie] ), 200 )
         else:
             return make_response( jsonify({"error" : "Invalid review ID"} ), 404 )
     else:
@@ -90,11 +89,15 @@ def show_one_movie(id):
 @app.route("/api/v1.0/movies", methods=["POST"])
 @cross_origin(origin='*',headers=['Content-Type','Authorization'])
 def add_movie():
-    if "title" in request.form and "overview" in request.form and "runtime" in request.form: 
+    if "title" in request.form and "overview" in request.form and "runtime" in request.form  and "tagline" in request.form and "releasedate" in request.form: 
         new_movie = {
         "title" : request.form["title"],
         "overview" : request.form["overview"],
         "runtime" : request.form["runtime"],
+        "homepage" : request.form["homepage"],
+        "tagline" : request.form["tagline"],
+        "release date" : request.form["release date"],
+
         "reviews" : [], 
         }
 
@@ -109,9 +112,9 @@ def add_movie():
 @app.route("/api/v1.0/movies/<string:id>", methods=["PUT"])
 @cross_origin(origin='*',headers=['Content-Type','Authorization'])
 def edit_movie(id):
-    if "title" in request.form and "overview" in request.form and "runtime" in request.form:
+    if "title" in request.form and "overview" in request.form and "runtime" in request.form  and "tagline" in request.form and "releasedate" in request.form:
         result = movies.update_one( \
-        { "_id" : ObjectId(id) }, {"$set" : { "title" : request.form["title"], "overview" : request.form["overview"], "runtime" : request.form["runtime"]}} )
+        { "_id" : ObjectId(id) }, {"$set" : { "title" : request.form["title"], "overview" : request.form["overview"], "runtime" : request.form["runtime"], "tagline" : request.form["tagline", "releasedate" : request.form["releasedate"]]}} )
 
         if result.matched_count == 1:
             edited_movie_link = "http://localhost:5000/api/v1.0/movies/" + id
