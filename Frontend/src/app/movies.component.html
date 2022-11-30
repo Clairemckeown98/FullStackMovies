@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div *ngFor="let movies of webService.movie_list">
+                <div class="card text-white bg-primary mb-3" style="width: 50rem; margin: auto">
+                    <div class="card-header">
+                        {{ movies.title }}
+                    </div>
+                    <div class="card-body">
+                        {{ movies.overview }}
+                    </div>
+                    <div class="card-footer">
+                        {{ movies.budget }}
+                        
+                    </div>
+                </div>
+            </div>
+        </div> <!-- col -->
+    </div> <!-- row -->
+</div> <!-- container -->

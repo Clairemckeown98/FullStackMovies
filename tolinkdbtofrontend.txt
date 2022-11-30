@@ -1,0 +1,2 @@
+mongod --dbpath= "C:\Users\clair\OneDrive - Ulster University\Documents\1. 2022-23\Full Stack\MoviesApplication1\data\db"
+and run app.py

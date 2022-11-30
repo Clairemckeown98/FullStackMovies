@@ -1,0 +1,10 @@
+How to run app
+3 terminals 
+1. 
+venv/Scripts/activate
+python app.py
+2.
+mongod --dbpath="C:\Users\clair\OneDrive - Ulster University\Documents\1. 2022-23\Full Stack\MoviesApplication1\data\db"
+3.
+cd Frontend
+ng serve  

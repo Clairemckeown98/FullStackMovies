@@ -1,0 +1,11 @@
+import { WebService } from './web.service';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+
+var routes: any = [];
+
+@NgModule({
+ imports: [
+    BrowserModule, HttpClientModule,
+    RouterModule.forRoot(routes)
+ ],
