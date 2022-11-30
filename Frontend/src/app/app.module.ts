@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { MovieComponent } from './movie.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 import { AppComponent } from './app.component';
 import { MoviesComponent } from './movies.component';
@@ -16,6 +19,10 @@ var routes: any = [
   {
   path: 'movies',
   component: MoviesComponent
+  },
+  {
+    path: 'movies/:id',
+    component: MovieComponent
   }
  ];
 
@@ -23,12 +30,14 @@ var routes: any = [
   declarations: [
     AppComponent,
     MoviesComponent, 
-    HomeComponent
+    HomeComponent,
+    MovieComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    ReactiveFormsModule
   ],
   providers:  [WebService],
   bootstrap: [AppComponent]
